@@ -8,12 +8,20 @@ import RegisterPage from "./app/auth/RegisterPage";
 import PrivateLayout from "./app/private/PrivateLayout";
 import PrivatePage from "./app/private/PrivatePage";
 import ProductDetailPage from "./app/public/ProductDetailPage";
+import ContactPage from "./app/public/ContactPage";
+import CartPage from "./app/public/CartPage";
+import { CartProvider } from "./context/CartContext";
+import AuthContextProvider from "./context/AuthContext";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+    <CartProvider>
+      <RootLayout />
+    </CartProvider>
+    ),
     children: [
       {
         path: "/",
@@ -26,6 +34,14 @@ export const router = createBrowserRouter([
           {
             path: "product/:id",
             element: <ProductDetailPage />
+          },
+          {
+            path: "contact",
+            element: <ContactPage />  
+          },
+          {
+            path: "cart",
+            element: <CartPage /> 
           }
         ]
       },
@@ -34,7 +50,10 @@ export const router = createBrowserRouter([
 
       {
         path: "auth",
-        element: <AuthLayout />,
+        element: 
+        <AuthContextProvider>
+        <AuthLayout />
+        </AuthContextProvider>,
         children: [
           {
             path: "login",

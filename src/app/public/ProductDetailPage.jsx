@@ -1,8 +1,43 @@
-import {useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom'
-
+import { useEffect, useState, useContext } from 'react'
+import { useParams } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 
 function ProductDetailPage() {
+const { setCart, cart } = useContext(CartContext)
+
+const addToCart = async (product) => {
+  try{
+    const response = await fetch ('https://js2-ecommerce-api.vercel.app/api/orders',{ 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        products: [
+          {
+            productId: product._id,
+            quantity: 2
+        }
+      ]
+    }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add product to cart on server');
+      }
+
+      const data = await response.json();
+      console.log('Product added to cart on server:', data);
+
+      // Also add product to local cart state
+      setCart([...cart, product]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+
 
   const [product, setproduct] = useState(null)
   const {id} = useParams()
@@ -50,7 +85,9 @@ function ProductDetailPage() {
     <h2 className='font-bold mb-2 mt-2'>{product?.name}</h2>
     <p className='text-sm mb-2'>{product?.description}</p>
     <p className='text-sm'>{product?.price} kr</p>
-    
+  
+    <button className='bg-emerald-500 px-3 py-1 rounded mt-4 mb-4 hover:bg-emerald-600 transition-colors'
+    onClick={()=>addToCart(product)}>Add to Cart</button>
   </div>
   )
 }

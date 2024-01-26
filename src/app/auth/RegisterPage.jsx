@@ -1,8 +1,16 @@
 
+import { Card } from '../../components/FormCard'
+import { Link } from 'react-router-dom'
+import { RegisterForm } from '../../components/RegisterForm'
 
 function RegisterPage() {
   return (
-    <div>RegisterPage</div>
+    <div>
+      <Card>
+        <RegisterForm/>
+      <p className="mt-3">Already a member? <Link className="text-blue-600 underline" to="/auth/login">Login here!</Link></p>
+      </Card>
+    </div>
   )
 }
 

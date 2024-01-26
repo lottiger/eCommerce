@@ -1,8 +1,12 @@
+import { Outlet } from "react-router-dom"
 
 
 function PrivateLayout() {
   return (
-    <div>PrivateLayout</div>
+    <div>
+      <p>Grattis! Du är inloggad</p>
+      <Outlet/>
+      </div>
   )
 }
 
