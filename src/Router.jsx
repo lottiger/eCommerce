@@ -12,15 +12,18 @@ import ContactPage from "./app/public/ContactPage";
 import CartPage from "./app/public/CartPage";
 import { CartContextProvider } from "./context/CartContext";
 import AuthContextProvider from "./context/AuthContext";
+import CheckoutPage from "./app/public/CheckoutPage";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: (
+      <AuthContextProvider>
     <CartContextProvider>
       <RootLayout />
     </CartContextProvider>
+    </AuthContextProvider>
     
     ),
     children: [
@@ -43,6 +46,10 @@ export const router = createBrowserRouter([
           {
             path: "cart",
             element: <CartPage /> 
+          },
+          {
+            path: "checkout",
+            element: <CheckoutPage />
           }
         ]
       },
