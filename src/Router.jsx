@@ -10,7 +10,7 @@ import PrivatePage from "./app/private/PrivatePage";
 import ProductDetailPage from "./app/public/ProductDetailPage";
 import ContactPage from "./app/public/ContactPage";
 import CartPage from "./app/public/CartPage";
-import { CartProvider } from "./context/CartContext";
+import { CartContextProvider } from "./context/CartContext";
 import AuthContextProvider from "./context/AuthContext";
 
 
@@ -18,9 +18,10 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-    <CartProvider>
+    <CartContextProvider>
       <RootLayout />
-    </CartProvider>
+    </CartContextProvider>
+    
     ),
     children: [
       {
