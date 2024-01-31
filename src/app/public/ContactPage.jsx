@@ -1,8 +1,14 @@
 import React from 'react'
+import { ContactForm } from '../../components/ContactForm'
+import { Card } from '../../components/FormCard'
 
 function ContactPage() {
   return (
-    <div>ContactPage</div>
+    <div>
+      <Card>
+      <ContactForm />
+      </Card>
+    </div>
   )
 }
 

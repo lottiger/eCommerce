@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useAuth } from '../../context/AuthContext'
+import { Link } from 'react-router-dom'
 
 function PrivatePage() {
   const {token} = useAuth()
@@ -41,10 +42,11 @@ const fetchOrder = async () => {
     console.error('Failed to fetch order:', error);
   }
 }
-  
-
+ 
   return (
     <div>
+      <p>Hello Dear Member</p>
+      <Link to='/'>Lets go shopping right away!</Link>
       <h2>Orderhistorik</h2>
       <button onClick={fetchOrders}>Get order history</button>
       <input value={orderId} onChange={e => setOrderId(e.target.value)} placeholder="Order ID" />

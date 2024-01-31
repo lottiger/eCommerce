@@ -12,7 +12,7 @@ const AuthContextProvider = ({children}) => {
     }, [])
 
     useEffect(() => {
-        if(token) localStorage.setItem('accesstoken', token)
+        if(token) localStorage.setItem('token', token)
         
         }, [token])
 
@@ -62,6 +62,9 @@ const AuthContextProvider = ({children}) => {
         }
     
         setToken(data.token)
+       
+      
+       
         return {success: 'User logged in'}
 
      } catch (error){
@@ -71,7 +74,7 @@ const AuthContextProvider = ({children}) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('accesstoken')
+        localStorage.removeItem('token')
         setToken(null)
 
     }

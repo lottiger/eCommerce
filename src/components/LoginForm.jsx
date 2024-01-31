@@ -23,7 +23,7 @@ export const LoginForm = () => {
         setError (error)
         console.log(error)
       }
-        if (success) {
+       else if (success) {
             setSuccess(success)
             navigate ('/private')
         }

@@ -22,10 +22,10 @@ export const RegisterForm = () => {
       if(error) {
         setError (error)
         console.log(error)
-      }
-        if (success) {
+      } else if (success) {
             setSuccess(success)
-            // history.push('/auth/login')
+            // localStorage.setItem(firstname, values.firstname)
+          
         }
     }
   })
