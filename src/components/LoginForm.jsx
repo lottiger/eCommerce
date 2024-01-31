@@ -1,11 +1,13 @@
 import { useFormik } from 'formik'
 import { useAuth } from '../context/AuthContext'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginForm = () => {
     const { login, token } = useAuth()
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const navigate = useNavigate()
   
   const form = useFormik ({
     initialValues: {
@@ -23,8 +25,7 @@ export const LoginForm = () => {
       }
         if (success) {
             setSuccess(success)
-            // history.push('/auth/login')
-            // navigate ('/private')
+            navigate ('/private')
         }
     }
   })

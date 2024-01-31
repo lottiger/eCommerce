@@ -1,11 +1,16 @@
 import { Outlet } from "react-router-dom"
+import { Navbar } from "../../components/Navbar"
+
 
 
 function PrivateLayout() {
   return (
     <div>
-      <p>Grattis! Du är inloggad</p>
+      
+      <Navbar/>
       <Outlet/>
+      
+      
       </div>
   )
 }

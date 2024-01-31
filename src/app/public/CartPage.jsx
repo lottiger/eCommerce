@@ -1,19 +1,27 @@
 // import { useContext} from 'react';
 
 import { PlaceOrder } from '../../components/PlaceOrder';
+
 import { useCart} from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 
 
 export const CartPage = ({isCheckoutPage}) => {
   const { cart, addToCart, removeOneFromCart, totalPrice, totalQuantity, removeItem } = useCart()
-
+ 
   
   
   return (
+
+    
     <div className='mt-10'>
-      {/* <h2 className='mb-10 text-center text-xl'>Your Cart</h2> */}
-      {cart.map((item, index) => (
+      
+     
+      {cart.length === 0 
+      ? (
+      <p>Your cart is empty</p>
+    ) : (
+      cart.map((item, index) => (
         <div className='h-52 w-auto border flex ml-10 mr-10' key={index}>
           <div className='mr-10'>
             <img className='h-48 w-auto object-cover' src={item.product.images[0]} alt={item.product.name} />
@@ -28,9 +36,11 @@ export const CartPage = ({isCheckoutPage}) => {
             <button onClick={() => removeItem(item.product._id)}>Delete</button>
           </div>
         </div>
-      ))}
+      ))
+    )}
       <div>
-        <h2>Total Price: {totalPrice} kr</h2>
+
+        <p>Total Price: {totalPrice} kr</p>
       </div>
      
       {isCheckoutPage ? (
@@ -39,7 +49,7 @@ export const CartPage = ({isCheckoutPage}) => {
           <PlaceOrder />
         </div>
       ) : (
-        <Link to="/checkout" className="">Continue to Checkout</Link>
+        cart.length > 0 && <Link to="/checkout" className="">Continue to Checkout</Link>
       )}
     </div>
   )

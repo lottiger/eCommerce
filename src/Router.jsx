@@ -15,15 +15,15 @@ import AuthContextProvider from "./context/AuthContext";
 import CheckoutPage from "./app/public/CheckoutPage";
 
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  
+  [
   {
     path: "/",
     element: (
-      <AuthContextProvider>
-    <CartContextProvider>
+     
       <RootLayout />
-    </CartContextProvider>
-    </AuthContextProvider>
+   
     
     ),
     children: [
@@ -59,9 +59,9 @@ export const router = createBrowserRouter([
       {
         path: "auth",
         element: 
-        <AuthContextProvider>
+        
         <AuthLayout />
-        </AuthContextProvider>,
+        ,
         children: [
           {
             path: "login",
@@ -78,7 +78,9 @@ export const router = createBrowserRouter([
 
       {
         path: "private",
-        element: <PrivateLayout />,
+        element:
+          <PrivateLayout />
+           ,
         children: [
           {
             index: true,

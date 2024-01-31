@@ -1,6 +1,9 @@
 import CartPage from './CartPage'
 
+
 function CheckoutPage() {
+
+  
   return (
     <div>
 <CartPage isCheckoutPage/>
