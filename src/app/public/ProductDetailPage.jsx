@@ -1,6 +1,8 @@
 import { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext, useCart } from '../../context/CartContext'
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 function ProductDetailPage() {
 
@@ -64,23 +66,25 @@ function ProductDetailPage() {
   
   
   return (
-    <div className='ml-28 mr-28 mt-10'>
+    <div className=' ml-28 mr-28 mt-10'>
     {product && (
       <div className='relative flex justify-center'>
-        <img className=' h-96 w-auto object-cover' src={product.images[currentImageIndex]} alt={`Product ${currentImageIndex}`} />
-        <button onClick={prevImage} className='absolute left-0 top-1/2 transform -translate-y-1/2 p-2'>
-          Prev
+       
+        <img className=' relative max-h-96 w-auto object-cover' src={product.images[currentImageIndex]} alt={`Product ${currentImageIndex}`} />
+        
+        <button onClick={prevImage} className='absolute left-0 top-1/2 transform -translate-y-1/2'>
+        <FaArrowCircleLeft color='#172554' size={20}/>
         </button>
-        <button onClick={nextImage} className='absolute right-0 top-1/2 transform -translate-y-1/2  p-2'>
-          Next
+        <button onClick={nextImage} className='absolute right-0 top-1/2 transform -translate-y-1/2'>
+        <FaArrowCircleRight color='#172554' size={20}/>
         </button>
       </div>
     )}
     <h2 className='font-bold mb-2 mt-2'>{product.name}</h2>
-    <p className='text-sm mb-2'>{product.description}</p>
-    <p className='text-sm'>{product.price} kr</p>
+    <p className='text-xs mb-2'>{product.description}</p>
+    <p className=' font-semibold'>{product.price} :-</p>
   
-    <button className='bg-emerald-500 px-3 py-1 rounded mt-4 mb-4 hover:bg-emerald-600 transition-colors'
+    <button className='bg-blue-950 text-white px-4 py-1 rounded p-8 mt-4 mb-4 hover:bg-blue-900 transition-colors'
     onClick={handleClick}>Add to Cart</button>
   </div>
   )

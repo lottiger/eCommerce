@@ -1,9 +1,13 @@
 import React from 'react'
+import samsung from '../images/samsung.jpg'
+
 
 export const Hero = () => {
   return (
-    <section className='bg-blue-200 h-80 flex justify-center items-center text-5xl'>
-        <h2 className=''>Hero</h2>
-    </section>
+    
+    <section className=' h-80 w-full '>
+    <img className=' h-full w-full object-cover object-top' src={samsung} alt="samsung TV" />
+  </section>
+    
   )
 }

@@ -23,10 +23,10 @@ export const Products = () => {
   }, []);
 
   const categoryColors = {
-    'dammsugare': 'bg-red-200',
-    'mobiltelefoner': 'bg-blue-200',
-    'laptop': 'bg-green-200',
-    'TV': 'bg-green-200',
+    'dammsugare': 'bg-red-600',
+    'mobiltelefoner': 'bg-purple-600',
+    'laptop': 'bg-green-600',
+    'TV': 'bg-yellow-600',
   }
 
   const categories = ['All products', ...new Set(products.map((product) => product.category))]
@@ -36,28 +36,28 @@ export const Products = () => {
     : products.filter((product) => product.category === selectedCategory)
 
   return (
-    <div>
-    <div>
-<select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+    <div className='bg-blue-950'>
+    <div className=' flex justify-center'>
+<select className='w-1/2 mt-8 bg-blue-950 text-white cursor-pointer' value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
         {categories.map((category, index) => (
-          <option key={index} value={category}>
+          <option  key={index} value={category}>
             {category}
           </option>
         ))}
       </select>
 
     </div>
-    <div className='flex flex-wrap justify-center m-7'>
+    <div className='flex flex-wrap justify-center m-8 gap-8'>
       
       {filteredProducts.map((product) => (
         <Link to={`/product/${product._id}`} key={product._id}>
-          <div className='h-80 w-64 border rounded-md m-2 p-2 flex flex-col justify-between cursor-pointer hover:bg-gray-100'>
+          <div className='h-72 w-64 rounded-md p-3 flex flex-col justify-between cursor-pointer bg-white hover:scale-105 transition-transform'>
             <img className='' src={product.images[0]} alt={product.name} />
             <h3 className='font-bold'>{product.name}</h3>
-            <p className='mt-2'>{product.price} kr</p>
+            <p className='font-bold'>{product.price} :-</p>
             <div className='mt-2 flex items-center'>
               <div className={`w-1 h-4 mr-1 ${categoryColors[product.category]}`}></div>
-              <p className='text-xs'>{product.category.toUpperCase()}</p>
+              <p className='text-xs font-semibold'>{product.category.toUpperCase()}</p>
             </div>
           </div>
         </Link>
