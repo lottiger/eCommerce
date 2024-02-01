@@ -4,9 +4,13 @@ import { Si4Chan } from "react-icons/si";
 import { MdOutlineShoppingBag } from "react-icons/md";
 
 import { AuthContext } from '../context/AuthContext'; // Uppdaterad import-sats
+// import { CartContext } from '../context/CartContext';
 
+// const {totalQuantity} = useContext(CartContext)
 export const Navbar = () => {
   const { token, logout } = useContext(AuthContext); // Använd AuthContext
+
+
 
   return (
     <nav className='bg-blue-950 text-white flex justify-between p-8'>
@@ -19,7 +23,16 @@ export const Navbar = () => {
         ) : (
           <li><NavLink to= '/auth/login'>Login</NavLink></li>
         )}
-        <li><NavLink to= '/cart'><MdOutlineShoppingBag color='white' size={30} /></NavLink></li>
+        <li className='relative'>
+        <NavLink to= '/cart'>
+          <MdOutlineShoppingBag color='white' size={30} />
+          {/* {totalQuantity > 0 && 
+            <div className="absolute right-0 bg-red-600 text-white w-5 h-5 flex items-center justify-center rounded-full z-10">
+              <p className="text-xs">{totalQuantity}</p>
+            </div>
+          } */}
+        </NavLink>
+      </li>
       </ul>
     </nav>
   );

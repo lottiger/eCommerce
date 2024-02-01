@@ -1,67 +1,4 @@
 
-
-
-// import { useCart } from '../context/CartContext'
-// import { useAuth } from '../context/AuthContext'
-// import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
-
-
-// export const PlaceOrder = () => {
-//     const {cart, clearCart} = useCart()
-//     const {token} = useAuth()
-//     console.log(token)
-//     const [orderPlaced, setOrderPlaced] = useState(false)
-
-//     const PlaceOrder = async () => {
-//         try {
-//             if (!Array.isArray(cart)) {
-//                 console.error('Cart is not an array');
-//                 return;
-//             }
-
-//             const products = cart.map(product => ({
-//                 productId: product.product._id,
-//                 quantity: product.quantity,
-//                 price: product.price,
-//             }))
-// console.log(token)
-//             const response = await fetch('https://js2-ecommerce-api.vercel.app/api/orders',{
-//                 method: 'POST',
-//                 headers: {
-//                     'content-type': 'application/json',
-//                    ...(token &&{ Authorization: `Bearer ${token}`}),
-//                 },
-//                 body: JSON.stringify({ products }),
-//             })
-
-//             if (response.ok) {
-//                 const order = await response.json();
-//                 console.log('Order placed successfully', order)
-//                 clearCart()
-//                 setOrderPlaced(true)
-//             } else {
-//                 console.error('Failed to place order');
-//             }
-//         } catch (error) {
-//             console.error('An error occurred:', error);
-//         }
-//     }
-
-//   return (
-//     <div>
-//          {orderPlaced && <p>Thank you for your purchase</p>}
-//          {!orderPlaced ? (
-//       <button onClick={PlaceOrder}>Place Order</button>
-//     ) : (
-//       token && <Link to="/private">Order History</Link>
-//     )}
-   
-//     </div>
-//   )
-// }
-
-
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 import React, { useState } from 'react'
@@ -70,10 +7,10 @@ import { Link } from 'react-router-dom'
 export const PlaceOrder = () => {
     const {cart, clearCart} = useCart()
     const {token} = useAuth()
-    const [orderPlaced, setOrderPlaced] = useState(false)
+    const [orderPlaced, setOrderPlaced] = useState(false) //flytta upp i cartpage och skicka ner som props
     const [orderId, setOrderId] = useState(null) // New state variable for order id
 
-    const PlaceOrder = async () => {
+    const confirmedOrder = async () => {
         try {
             if (!Array.isArray(cart)) {
                 console.error('Cart is not an array');
@@ -90,7 +27,7 @@ export const PlaceOrder = () => {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
-                   ...(token &&{ Authorization: `Bearer ${token}`}),
+                   ...(token &&{ Authorization: `Bearer ${token}`}), //KOLLA UPP OM NÖDVÄNDIG!!
                 },
                 body: JSON.stringify({ products }),
             })
@@ -113,20 +50,20 @@ export const PlaceOrder = () => {
 
    
   return (
-    <div>
+    <div className=''>
          {orderPlaced 
          
          ? (
            <>
              <p>Thank you for your purchase</p>
              <p>Your order id is: {orderId}</p>
-             {token && <Link to="/private">Order History</Link>}
+             {token && <Link to="/private"  >Order History</Link>}
            </>
          ) : (
-            <>
+            <div className='bg-pink-200'>
              
-           <button onClick={PlaceOrder}>Place Order</button>
-           </>
+           <button className='w-full text-center block bg-blue-950 text-white px-4 py-3 rounded p-8 mt-4 mb-4 hover:bg-blue-900 transition-colors' onClick={confirmedOrder}>Place Order</button>
+           </div>
          )}
     </div>
   )

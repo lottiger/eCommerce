@@ -7,6 +7,8 @@ export const ContactForm = () => {
         message: ''
     })
 
+    const [messageSent, setMessageSent] = useState(false)
+    const [messageNotSent, setMessageNotSent] = useState(false)
    const handleChange = (e) => {
     setFormdata({
         ...formData,
@@ -32,7 +34,8 @@ export const ContactForm = () => {
         const data = await response.json()
         console.log(data)
 
-        alert('Message sent')
+        setMessageSent(true)
+        setMessageNotSent(false)
         setFormdata({
             name: '',
             email: '',
@@ -40,7 +43,7 @@ export const ContactForm = () => {
         })
     } catch (error){
         console.error('Failed to send message', error)
-        alert('Failed to send message')
+        setMessageNotSent(true)
     }
    }
   return (
@@ -59,6 +62,8 @@ export const ContactForm = () => {
         <textarea name="message" value={formData.message} onChange={handleChange} required />
       </label>
       <button type="submit">Send</button>
+      {messageSent && <p>Message sent, thank you!</p>}
+      {messageNotSent && <p>Failed to send message, please try again!</p>}
     </form>
     </div>
   )
