@@ -45,7 +45,7 @@ const fetchOrder = async () => {
  
   return (
     <div>
-      <p>Hello Dear Member</p>
+      <p>Hello Dear Member,</p>
       <Link to='/'>Lets go shopping right away!</Link>
       <h2>Orderhistorik</h2>
       <button onClick={fetchOrders}>Get order history</button>
