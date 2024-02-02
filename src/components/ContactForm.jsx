@@ -47,24 +47,24 @@ export const ContactForm = () => {
     }
    }
   return (
-    <div className='bg-blue-200'>
-         <form className='flex flex-col' onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+   
+         <form className='text-center' onSubmit={handleSubmit}>
+      <label className=''>
+        Name
+        <input className='border block w-full mb-3 p-1 rounded' type="text" name="name" value={formData.name} onChange={handleChange} required />
+      </label>
+      <label className=''>
+        Email
+        <input className='border block w-full mb-3 p-1 rounded' type="email" name="email" value={formData.email} onChange={handleChange} required />
       </label>
       <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        Message
+        <textarea className='border block w-full rounded' name="message" rows={4} value={formData.message} onChange={handleChange} required />
       </label>
-      <label>
-        Message:
-        <textarea name="message" value={formData.message} onChange={handleChange} required />
-      </label>
-      <button type="submit">Send</button>
+      <button className='bg-blue-950 text-white mt-2 border block w-full p-1 rounded hover:bg-blue-900' type="submit">Send</button>
       {messageSent && <p>Message sent, thank you!</p>}
       {messageNotSent && <p>Failed to send message, please try again!</p>}
     </form>
-    </div>
+    
   )
   }

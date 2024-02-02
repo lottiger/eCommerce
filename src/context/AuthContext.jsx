@@ -29,7 +29,7 @@ const AuthContextProvider = ({children}) => {
             })
             console.log(response)
         if(response.status !== 201) {
-            throw new Error('Cannot register user')
+            throw new Error('Cannot register user, pleas try again.')
         }
     
         const data = await response.json()
