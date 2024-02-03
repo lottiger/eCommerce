@@ -1,22 +1,17 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { CartContext, useCart } from '../../context/CartContext'
+import { useCart } from '../../context/CartContext'
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowCircleLeft } from "react-icons/fa";
 
 function ProductDetailPage() {
 
-  
-
-
   const { id } = useParams()
-
   const { addToCart } = useCart()
 
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
@@ -52,9 +47,6 @@ function ProductDetailPage() {
 
   if(!product) return null
 
-
-
-
   const nextImage = () => {
     setCurrentImageIndex((currentImageIndex + 1) % product.images.length)
   }
@@ -63,8 +55,6 @@ function ProductDetailPage() {
     setCurrentImageIndex((currentImageIndex - 1 + product.images.length) % product.images.length)
   }
 
-  
-  
   return (
     <div className=' ml-28 mr-28 mt-10'>
     {product && (
@@ -79,13 +69,13 @@ function ProductDetailPage() {
         <FaArrowCircleRight color='#172554' size={20}/>
         </button>
       </div>
-    )}
-    <h2 className='font-bold mb-2 mt-2'>{product.name}</h2>
-    <p className='text-xs mb-2'>{product.description}</p>
-    <p className=' font-semibold'>{product.price} :-</p>
+      )}
+      <h2 className='font-bold mb-2 mt-2'>{product.name}</h2>
+      <p className='text-xs mb-2'>{product.description}</p>
+      <p className=' font-semibold'>{product.price} :-</p>
   
-    <button className='bg-blue-950 text-white px-4 py-1 rounded p-8 mt-4 mb-4 hover:bg-blue-900 transition-colors'
-    onClick={handleClick}>Add to Cart</button>
+      <button className='bg-blue-950 text-white px-4 py-1 rounded p-8 mt-4 mb-4 hover:bg-blue-900 transition-colors'
+      onClick={handleClick}>Add to Cart</button>
   </div>
   )
 }

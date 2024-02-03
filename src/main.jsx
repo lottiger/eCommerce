@@ -16,6 +16,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </UserProvider>
     </CartContextProvider>
     </AuthContextProvider>
-    
   </React.StrictMode>,
 )

@@ -19,17 +19,17 @@ function PrivatePage() {
         setOrders(data)
       } else {
         console.error('Unexpected response:', data);
-        setOrders([]) // set orders to an empty array if data is not an array
+        setOrders([]) 
       }
     } catch (error) {
       console.error('Failed to fetch orders:', error)
     }
   }
 
-  const [orderId, setOrderId] = useState('') // state for the order ID input
-
-const fetchOrder = async () => {
-  try {
+  const [orderId, setOrderId] = useState('') 
+  const fetchOrder = async () => {
+  
+    try {
     const response = await fetch(`https://js2-ecommerce-api.vercel.app/api/orders/${orderId}`, {
       headers: {
         'content-type': 'application/json',
@@ -49,7 +49,6 @@ const fetchOrder = async () => {
       <p className='text-xl'>Hello Dear Member,</p>
       <Link to='/'>Lets go shopping right away!</Link>
       <p className='mt-20 mb-10'>Order History</p>
-     
       <input className='border rounded mr-2 p-1' value={orderId} onChange={e => setOrderId(e.target.value)} placeholder="Ordernumber" />
       <button className='bg-blue-950 text-white rounded p-1 mr-1 hover:bg-blue-900' onClick={fetchOrder}>Get order</button>
       <button className='bg-blue-950 text-white rounded p-1 mr-1 hover:bg-blue-900' onClick={fetchOrders}>Get all orders</button>
@@ -63,7 +62,6 @@ const fetchOrder = async () => {
               <h4 className='font-semibold'>{product.product.name}</h4>
               <p>Antal: {product.quantity}</p>
               <p>Pris: {product.product.price} :-</p>
-              
             </div>
           ))}
           <p>Totalpris: {order.products.reduce((total, product) => total + product.product.price * product.quantity, 0)} :-</p>

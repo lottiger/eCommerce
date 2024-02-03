@@ -19,6 +19,7 @@ const AuthContextProvider = ({children}) => {
 
 
     const register = async (email, password) => {
+        
         try{ 
             const response = await fetch('https://js2-ecommerce-api.vercel.app/api/auth/register', {
             method: 'POST',
@@ -37,7 +38,6 @@ const AuthContextProvider = ({children}) => {
         return {success: 'User registered'}
 
      } catch (error){
-            // console.log(error)
             return {error: error.message}
         }
         }
@@ -68,7 +68,6 @@ const AuthContextProvider = ({children}) => {
         return {success: 'User logged in'}
 
      } catch (error){
-            // console.log(error)
             return {error: error.message}
         }
     }

@@ -5,9 +5,9 @@ function CheckoutPage() {
 
   
   return (
-    <div>
+    <>
 <CartPage isCheckoutPage/>
-    </div>
+    </>
   )
 }
 

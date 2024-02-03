@@ -18,7 +18,7 @@ export const RegisterForm = () => {
       email: '',
       password: '',
       confirmPassword: '',
-    };
+    }
    
 
   const form = useFormik ({
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
             setError('')
             form.resetForm()
             navigate ('/auth/login')
-            // localStorage.setItem(firstname, values.firstname)
+           
           
         }
     } catch(error) {
@@ -95,7 +95,7 @@ export const RegisterForm = () => {
     
       <button className='bg-blue-950 text-white mt-2 border block w-full p-1 rounded hover:bg-blue-900' type='submit'>Register</button>
     </form>
-  );
+  )
 }
 
 

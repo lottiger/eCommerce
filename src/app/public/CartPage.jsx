@@ -1,11 +1,9 @@
-// import { useContext} from 'react';
-
-import { PlaceOrder } from '../../components/PlaceOrder';
-import { useCart} from '../../context/CartContext';
-import { Link } from 'react-router-dom';
-import { FaPlusSquare } from "react-icons/fa";
-import { FaMinusSquare } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
+import { PlaceOrder } from '../../components/PlaceOrder'
+import { useCart} from '../../context/CartContext'
+import { Link } from 'react-router-dom'
+import { FaPlusSquare } from "react-icons/fa"
+import { FaMinusSquare } from "react-icons/fa"
+import { FaTrashAlt } from "react-icons/fa"
 
 export const CartPage = ({isCheckoutPage}) => {
   
@@ -35,18 +33,13 @@ export const CartPage = ({isCheckoutPage}) => {
     )}
       <div className='ml-10 mr-10'>
       {cart.length === 0 ? null : <p className='font-bold mt-2'>Total Price: {totalPrice} :-</p>}
-        {/* <p className='font-bold mt-2'>Total Price: {totalPrice} :-</p> */}
-      
-     
       {isCheckoutPage ? (
         <div>
-          {/* <button className='bg-pink-300'>Place Order</button> */}
           <PlaceOrder />
         </div>
       ) : (
         cart.length > 0 && <Link to="/checkout" className=' block text-center bg-blue-950 text-white p-2 rounded mt-4 mb-4 hover:bg-blue-900 transition-colors'>Continue to Checkout</Link>
       )}
-    
     </div>
     </div>
   )

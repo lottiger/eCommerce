@@ -4,7 +4,6 @@ import { useAuth } from "../../context/AuthContext"
 import { useEffect } from "react"
 
 
-
 function PrivateLayout() {
 
   const {token} = useAuth()
@@ -17,13 +16,10 @@ function PrivateLayout() {
   },[token])
 
   return (
-    <div>
-      
+    <>
       <Navbar/>
       <Outlet/>
-      
-      
-      </div>
+    </>
   )
 }
 

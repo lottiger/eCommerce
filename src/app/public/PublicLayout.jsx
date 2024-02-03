@@ -3,12 +3,12 @@ import { Navbar } from "../../components/Navbar"
 
 function PublicLayout() {
   return (
-    <div>
+    <>
     <div>
       <Navbar />
     </div>
     <Outlet />
-    </div>
+    </>
   )
 }
 

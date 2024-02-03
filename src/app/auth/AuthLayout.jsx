@@ -8,7 +8,7 @@ function AuthLayout() {
    <>
    <Navbar/>
    <div className="flex justify-center text-center items-center h-screen">
- <Outlet />
+    <Outlet />
  </div>
    </>
   )
