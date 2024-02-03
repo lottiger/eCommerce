@@ -46,24 +46,18 @@ export const PlaceOrder = () => {
         }
     }
 
-
-
-   
   return (
-    <div className=''>
+    <div className='text-center'>
          {orderPlaced 
          
          ? (
            <>
-             <p>Thank you for your purchase</p>
-             <p>Your order id is: {orderId}</p>
-             {token && <Link to="/private"  >Order History</Link>}
+             <p className='text-[40px] mt-20'>Thank you for your purchase!</p>
+             <p className='mt-20 mb-5 text-sm'>Order number: {orderId}</p>
+             {token && <Link className='bg-blue-950 text-white rounded p-1 mr-1 hover:bg-blue-900' to="/private">View order History</Link>}
            </>
-         ) : (
-            <div className='bg-pink-200'>
-             
-           <button className='w-full text-center block bg-blue-950 text-white px-4 py-3 rounded p-8 mt-4 mb-4 hover:bg-blue-900 transition-colors' onClick={confirmedOrder}>Place Order</button>
-           </div>
+         ) : ( 
+           <button className='w-full text-center block bg-blue-950 text-white p-2 rounded  mt-4 mb-4 hover:bg-blue-900 transition-colors' onClick={confirmedOrder}>Place Order</button>
          )}
     </div>
   )
