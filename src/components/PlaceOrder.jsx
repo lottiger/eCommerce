@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+
 export const PlaceOrder = () => {
     const {cart, clearCart} = useCart()
     const {token} = useAuth()
@@ -52,15 +53,18 @@ export const PlaceOrder = () => {
          
          ? (
            <>
-             <p className='text-[40px] mt-20'>Thank you for your purchase!</p>
+           <div className='border shadow-md mt-20 rounded p-1 min-h-56 flex items-center justify-center'>
+             <p className='text-[40px]'>Thank you for your purchase!</p>
+             </div>
              <p className='mt-20 mb-5 text-sm'>Order number: {orderId}</p>
-             {token && <Link className='bg-blue-950 text-white rounded p-1 mr-1 hover:bg-blue-900'
+             {token && <Link className='bg-blue-950 text-white rounded p-1 mr-1 mb-10 hover:bg-blue-900'
              to="/private">View order History</Link>}
            </>
          ) : ( 
            <button className='w-full text-center block bg-blue-950 text-white p-2 rounded  mt-4 mb-4 hover:bg-blue-900 transition-colors'
            onClick={confirmedOrder}>Place Order</button>
          )}
+         
     </div>
   )
 }
