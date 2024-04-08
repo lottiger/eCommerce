@@ -7,15 +7,15 @@ const validate = values => {
 
  
 
-  if (!values.firstname) {
-    errors.firstname = 'Required'
-  } else if (values.firstname.length < 2) {
-    errors.firstname = 'First name have to be at least 2 characters long'
+  if (!values.firstName) {
+    errors.firstName = 'Required'
+  } else if (values.firstName.length < 2) {
+    errors.firstName = 'First name have to be at least 2 characters long'
   }
-    if (!values.lastname) {
-    errors.lastname = 'Required'
-  } else if (values.lastname.length < 2) {
-    errors.lastname = 'Last name have to be at least 2 characters long'
+    if (!values.lastName) {
+    errors.lastName = 'Required'
+  } else if (values.lastName.length < 2) {
+    errors.lastName = 'Last name have to be at least 2 characters long'
   }
 
   if (!values.email) {

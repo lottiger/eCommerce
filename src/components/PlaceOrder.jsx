@@ -24,7 +24,7 @@ export const PlaceOrder = () => {
                 price: product.price,
             }))
 
-            const response = await fetch('https://js2-ecommerce-api.vercel.app/api/orders',{
+            const response = await fetch('http://localhost:4000/api/order/',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -35,7 +35,7 @@ export const PlaceOrder = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                setOrderId(data.order._id) 
+                setOrderId(data._id) 
                 console.log('Order placed successfully', data)
                 clearCart()
                 setOrderPlaced(true)

@@ -16,10 +16,8 @@ const validate = values => {
   }
   if (!values.password) {
     errors.password = 'Required'
-  } else if (!passwordRegex.test(values.password)) {
-    errors.password = 'Password needs to contain ex. Aa!1 and be at least 8 characters long'
-  }
-  return errors;
+  } 
+  return errors
 }
 
 export const LoginForm = () => {

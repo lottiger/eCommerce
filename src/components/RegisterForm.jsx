@@ -13,8 +13,8 @@ export const RegisterForm = () => {
     const navigate = useNavigate()
 
     const initialValues = {
-      firstname: '',
-      lastname: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -30,7 +30,7 @@ export const RegisterForm = () => {
       console.log(values)
     
       try{
-      const {error, success} = await register(values.email, values.password) 
+      const {error, success} = await register(values.firstName, values.lastName, values.email, values.password, values.confirmPassword) 
       
       if(error) {
         setError (error)
@@ -54,17 +54,17 @@ export const RegisterForm = () => {
     return (
       <form onSubmit={form.handleSubmit} noValidate>
       <div>
-        <label htmlFor="firstname">First Name</label>
-        <input id='firstname' type="text" {...form.getFieldProps('firstname')} className="border block w-full mt-3 rounded" />
-        {form.touched.firstname && form.errors.firstname ? (
-          <div className='text-xs text-red-600' >{form.errors.firstname}</div>
+        <label htmlFor="firstName">First Name</label>
+        <input id='firstName' type="text" {...form.getFieldProps('firstName')} className="border block w-full mt-3 rounded" />
+        {form.touched.firstName && form.errors.firstName ? (
+          <div className='text-xs text-red-600' >{form.errors.firstName}</div>
         ) : null}
       </div>
       <div>
-      <label htmlFor="lastname">Last Name</label>
-      <input id='lastname' type="text" {...form.getFieldProps('lastname')} className="border block w-full mt-3 rounded" />
-      {form.touched.lastname && form.errors.lastname ? (
-          <div className='text-xs text-red-600'>{form.errors.lastname}</div>
+      <label htmlFor="lastName">Last Name</label>
+      <input id='lastName' type="text" {...form.getFieldProps('lastName')} className="border block w-full mt-3 rounded" />
+      {form.touched.lastName && form.errors.lastName ? (
+          <div className='text-xs text-red-600'>{form.errors.lastName}</div>
         ) : null}    
       </div>
       <div>

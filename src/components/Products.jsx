@@ -9,7 +9,7 @@ export const Products = () => {
     const fetchProducts = async () => {
       
       try {
-        const response = await fetch('https://js2-ecommerce-api.vercel.app/api/products')
+        const response = await fetch('http://localhost:4000/api/products/')
         if (!response.ok) {
           throw new Error('Something went wrong')
         }

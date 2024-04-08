@@ -20,7 +20,7 @@ function ProductDetailPage() {
       setLoading(true)
       try{
         console.log(id)
-      const response = await fetch(`https://js2-ecommerce-api.vercel.app/api/products/${id}`)
+      const response = await fetch(`http://localhost:4000/api/products/${id}`)
       if (!response.ok) {
         throw new Error('Something went wrong')
       }

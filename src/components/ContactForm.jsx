@@ -41,7 +41,7 @@ export const ContactForm = () => {
       console.log(values)
 
       try {
-        const response = await fetch('https://js2-ecommerce-api.vercel.app/api/messages', {
+        const response = await fetch('http://localhost:4000/api/message/', {
           method : 'POST',
           headers: {
               'Content-Type': 'application/json',
