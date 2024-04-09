@@ -1,4 +1,4 @@
-# E-commece
+# E-commerce
 
 ## React + Vite
 
