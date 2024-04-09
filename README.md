@@ -36,3 +36,6 @@ A project assigned from school. Follow through a purchase as a guest or by regis
 ![eCommerce5](https://github.com/lottiger/eCommerce/assets/143784188/76fef2ff-c87f-4bd9-af97-36642aa1172b)
 ![eCommerce6](https://github.com/lottiger/eCommerce/assets/143784188/5f2f6f66-4332-4234-97a2-bc77cb147858)
 
+
+(Products are borrowed from www.komplett.se This site is not intended for commercial use.)
+
